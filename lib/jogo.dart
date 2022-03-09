@@ -11,7 +11,14 @@ class Jogo extends StatefulWidget {
 class _JogoState extends State<Jogo> {
 
   var _imagemApp = AssetImage("images/padrao.png");
-  var _mensagem = Text("Escolha uma opção Abaixo:");
+  var _mensagem = Text(
+    "Escolha uma opção Abaixo:",
+    textAlign: TextAlign.center,
+    style: TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.bold
+    )
+    );
 
   void _opcaoSelecionada(String EscolhaUsuario){
 
@@ -46,7 +53,14 @@ class _JogoState extends State<Jogo> {
       (EscolhaUsuario == "papel" && escolhaApp == "pedra")
     ){
       setState(() {
-        this._mensagem = Text("Parabéns!!! Você ganhou :)");
+        this._mensagem = Text(
+          "Parabéns!!! Você ganhou :)",
+          textAlign: TextAlign.center,
+          style: TextStyle(
+          fontSize: 20,
+          fontWeight: FontWeight.bold
+          )
+          );
       });
     }else if(
       (EscolhaUsuario == "tesoura" && escolhaApp == "pedra") ||
@@ -54,11 +68,25 @@ class _JogoState extends State<Jogo> {
       (EscolhaUsuario == "pedra" && escolhaApp == "papel")
     ){
       setState(() {
-        this._mensagem = Text("AHHH!!! Você Perdeu :(");
+        this._mensagem = Text(
+          "AHHH!!! Você Perdeu :(",
+          textAlign: TextAlign.center,
+          style: TextStyle(
+          fontSize: 20,
+          fontWeight: FontWeight.bold
+          ),
+          );
       });
     }else{
       setState(() {
-        this._mensagem = Text("UUUU!!! Empatamos ;)");
+        this._mensagem = Text(
+          "UUUU!!! Empatamos ;)",
+          textAlign: TextAlign.center,
+          style: TextStyle(
+          fontSize: 20,
+          fontWeight: FontWeight.bold
+          ),
+          );
       });
     }
 
@@ -91,14 +119,7 @@ class _JogoState extends State<Jogo> {
           ),
           Padding(
             padding: EdgeInsets.only(top: 32, bottom: 16), 
-            child: Text(
-              this._mensagem.toString(),
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold
-              ),
-            ),
+            child: _mensagem
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
